@@ -13,5 +13,5 @@ export default defineConfig({
     port: parseInt(env.SINGLESTORE_PORT),
     ssl: {},
   },
-  // tablesFilter: ["santorwave_*"],
+  tablesFilter: ["santorwave_*"],
 });

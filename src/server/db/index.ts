@@ -2,6 +2,7 @@ import { drizzle } from "drizzle-orm/singlestore";
 import { createPool, type Pool } from "mysql2/promise";
 
 import { env } from "@/env";
+
 import * as schema from "./schema";
 
 /**
@@ -9,11 +10,11 @@ import * as schema from "./schema";
  * update.
  */
 const globalForDb = globalThis as unknown as {
-  conn: Pool | undefined;
+  connection: Pool | undefined;
 };
 
-const conn =
-  globalForDb.conn ??
+const connection =
+  globalForDb.connection ??
   createPool({
     database: env.SINGLESTORE_NAME,
     user: env.SINGLESTORE_USER,
@@ -24,10 +25,10 @@ const conn =
     maxIdle: 0,
   });
 
-if (env.NODE_ENV !== "production") globalForDb.conn = conn;
+if (env.NODE_ENV !== "production") globalForDb.connection = connection;
 
-conn.addListener("error", (err) => {
+connection.addListener("error", (err) => {
   console.error("Database connection error:", err);
 });
 
-export const db = drizzle(conn, { schema });
+export const db = drizzle(connection, { schema });
