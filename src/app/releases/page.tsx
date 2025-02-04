@@ -102,7 +102,7 @@ const getIcon = (type: string) => {
     >
   >;
 
-  const Elem = icons[type] || Music;
+  const Elem = icons[type] ?? Music;
 
   return <Elem className="mr-4 h-6 w-6 text-indigo-300" />;
 };
