@@ -1,0 +1,1093 @@
+{
+  "releases": [
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Po ulicy chodzę",
+      "w": "KAW",
+      "id": "1"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Gdy nadejdzie taki czas",
+      "w": "Ruch",
+      "id": "2"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Zaczekajmy z tą miłością",
+      "w": "Ruch",
+      "id": "3"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Tango Milonga",
+      "w": "Ruch",
+      "id": "4"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Graj piękny Cyganie",
+      "w": "Ruch",
+      "id": "5"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Piosenka o sąsiedzie",
+      "w": "Ruch",
+      "id": "6"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Nadleciał wiatr",
+      "w": "Ruch",
+      "id": "7"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Serce",
+      "w": "Ruch",
+      "id": "8"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Maleńki znak",
+      "w": "Ruch",
+      "id": "9"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Jezus malusieńki",
+      "w": "Ruch",
+      "id": "10"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Nadleciał wiatr",
+      "w": "Ruch",
+      "id": "11"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Gdy się Chrystus rodzi",
+      "w": "Ruch",
+      "id": "12"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Jesienne róże",
+      "w": "Ruch",
+      "id": "13"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Przy kominku",
+      "w": "Ruch",
+      "id": "14"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Z miłością nie spiesz się",
+      "w": "Ruch",
+      "id": "15"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Nie szukaj miłości",
+      "w": "Ruch",
+      "id": "16"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Zabierz Cyganowi skrzypce",
+      "w": "KAW",
+      "id": "17"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Przed pojednaniem",
+      "w": "Tompress",
+      "id": "18"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "To możesz przyjść",
+      "w": "KAW",
+      "id": "19"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Ta wielka miłość",
+      "w": "Tompress",
+      "id": "20"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Już czeka utarty mak",
+      "w": "Tompress",
+      "id": "21"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Kamienne schodki",
+      "w": "Muza",
+      "id": "22"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Komu?",
+      "w": "KAW",
+      "id": "23"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Komu mogę dać mój czas",
+      "w": "Tonpress",
+      "id": "24"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Mój największy błąd",
+      "w": "PWP Ruch",
+      "id": "25"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Umiała bym pokochać cię",
+      "w": "KAW",
+      "id": "26"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Jak szkoda że nie wcześniej",
+      "w": "Muza",
+      "id": "27"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Nasze białe noce",
+      "w": "KAW",
+      "id": "28"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Jesienne róże",
+      "w": "Muza",
+      "id": "29"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Avant de mourir",
+      "w": "Tonpress",
+      "id": "30"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Tych lat nie odda nikt",
+      "w": "Muza",
+      "id": "31"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Gdy nadejdzie taki czas",
+      "w": "Muza",
+      "id": "32"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Jasnoniebieska, jasnobłękitna",
+      "w": "Muza",
+      "id": "33"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Wiezie nas Wielki Wóz",
+      "w": "KAW",
+      "id": "34"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Nadleciał wiatr",
+      "w": "PWP Ruch",
+      "id": "35"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Sezam - Nadleciał wiatr",
+      "year": "1969",
+      "w": "PWP Ruch",
+      "id": "36"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Powrócisz tu",
+      "year": "1970",
+      "w": "PWP Ruch",
+      "id": "37"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Kto kocha ten wie",
+      "year": "1974",
+      "w": "KAW",
+      "id": "38"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Wiem że to miłość",
+      "year": "1976",
+      "w": "Tonpress",
+      "id": "39"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Do Betlejem pełni radości / Ach ubogi złobie",
+      "w": "PWP Ruch",
+      "id": "40"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Mijają noce i dnie / Przez marzenia",
+      "w": "PWP Ruch",
+      "id": "41"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Powraca się do pierwszej miłości / O wieczornym ptaku",
+      "w": "PWP Ruch",
+      "id": "42"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Najpiękniejsze Warszawianki to przyjezdne / Tyle wiem o piosence",
+      "w": "Tonpress",
+      "id": "43"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Jesteś w marzeniach / Zaczarowana łódź",
+      "w": "PWP Ruch",
+      "id": "44"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Zanim cię znalazłam / Wyczerpałam zasób snów",
+      "w": "Tonpress",
+      "id": "45"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Witaj gwiazdko złota / Dzisiaj w Betlejem",
+      "w": "PWP Ruch",
+      "id": "46"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Kowalem swego szczęścia każdy bywa sam / Nad głęboką wodą",
+      "w": "PWP Ruch",
+      "id": "47"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Przeleciała miłość ptakiem / Nie wiesz tego tylko ty",
+      "year": "1977",
+      "w": "Tonpress",
+      "id": "48"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Dwoje ludzi z marzeń / Nie mijaj mnie",
+      "year": "1978",
+      "w": "Tonpress",
+      "id": "49"
+    },
+    {
+      "type": "GR",
+      "artist": "Irena Santor",
+      "title": "Nalej mi wina / To nie było przewidziane",
+      "year": "1979",
+      "w": "Tonpress",
+      "id": "50"
+    },
+    {
+      "type": "EP",
+      "artist": "Irena Santor",
+      "title": "Irena Santor",
+      "w": "Verition",
+      "id": "51"
+    },
+    {
+      "type": "EP",
+      "artist": "Irena Santor",
+      "title": "Irena Santor",
+      "w": "Muza",
+      "year": "1962",
+      "id": "52"
+    },
+    {
+      "type": "EP",
+      "artist": "Irena Santor",
+      "title": "Wiązanka piosenek Zygmunta Wiehlera Muza",
+      "year": "1963",
+      "id": "53"
+    },
+    {
+      "type": "EP",
+      "artist": "Irena Santor",
+      "title": "Irena Santor",
+      "w": "Pronit",
+      "year": "1965",
+      "id": "54"
+    },
+    {
+      "type": "EP",
+      "artist": "Irena Santor",
+      "title": "Irena Santor",
+      "w": "Muza",
+      "year": "1966",
+      "id": "55"
+    },
+    {
+      "type": "EP",
+      "artist": "Irena Santor",
+      "title": "Kowalem swego szczęścia każdy bywa sam",
+      "w": "Muza",
+      "year": "1973",
+      "id": "56"
+    },
+    {
+      "type": "EP",
+      "artist": "Irena Santor",
+      "title": "Irena Santor",
+      "w": "Muza",
+      "year": "1973",
+      "id": "57"
+    },
+    {
+      "type": "EP",
+      "artist": "Irena Santor",
+      "title": "Kontredanse w stylu Mozarta",
+      "w": "Muza",
+      "year": "1974",
+      "id": "58"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Zakochani czekają na maj / Nocami i dniami",
+      "w": " Muza",
+      "id": "59"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Przeminęło z wiatrem / Ja cieszę się",
+      "w": " Muza",
+      "id": "60"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Graj piękny Cyganie / Portowe światła",
+      "w": " Muza",
+      "id": "61"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Ze szczęściem na ty / Nie szukaj daleko",
+      "w": " Muza",
+      "id": "62"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Nadleciał wiatr / Byle mi cię chłopcze mieć",
+      "w": " Muza",
+      "id": "63"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Gdy przyjdzie czas / Niezapomniany walc",
+      "w": " Muza",
+      "year": "1962",
+      "id": "64"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Tu zaczyna się świat / To nie ja",
+      "w": " Muza",
+      "year": "1963",
+      "id": "65"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Powrócisz tu / Ze szczęściem na ty",
+      "w": " Muza",
+      "year": "1967",
+      "id": "66"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Serce / W hawajską noc",
+      "w": " Muza",
+      "year": "1967",
+      "id": "67"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Halo Warszawo! / To miłość się spóźniła",
+      "w": "Pronit",
+      "year": "1968",
+      "id": "68"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Kto spotyka Warszawę / Szkoda róż",
+      "w": "Tonpress",
+      "id": "69"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Telegram miłości / Potrafię serce nieść",
+      "w": "Tonpress",
+      "id": "70"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Wszystkie słowa miłości / To nie było przewidziane",
+      "w": " Muza",
+      "id": "71"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Tych lat nie odda nikt / Piosenka o sąsiedzie",
+      "w": " Muza",
+      "year": "1970",
+      "id": "72"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Czaba-raba-ran / Z miłością nie śpiesz się",
+      "w": " Muza",
+      "year": "1972",
+      "id": "73"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Wiem że to miłość / Jak wolny ptak",
+      "w": "Tonpress",
+      "year": "1975",
+      "id": "74"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Malowanki polskie",
+      "w": "Tonpress",
+      "year": "1979",
+      "id": "75"
+    },
+    {
+      "type": "SP",
+      "artist": "Irena Santor",
+      "title": "Już nie ma dzikich plaż / Mówię wyłącznie do ścian",
+      "w": "Tonpress",
+      "year": "1986",
+      "id": "76"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Rendez-vous z I. Santor",
+      "w": "Muza",
+      "year": "1961",
+      "id": "77"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "W krainie piosenki",
+      "w": "Muza",
+      "year": "1963",
+      "id": "78"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Dzień dobry piosenko",
+      "w": "Muza",
+      "year": "1964",
+      "id": "79"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Hallo, Warszawo!",
+      "w": "Pronit",
+      "year": "1965",
+      "id": "80"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Piosenki stare jak świat",
+      "w": "Muza",
+      "year": "1966",
+      "id": "81"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Powrócisz tu",
+      "w": "Muza",
+      "year": "1967",
+      "id": "82"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Zapamiętaj, że to ja",
+      "w": "Muza",
+      "year": "1969",
+      "id": "83"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Wśród nocnej ciszy",
+      "w": "Muza",
+      "year": "1969",
+      "id": "84"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "tutle": "Dla ciebie śpiewa I. Santor",
+      "w": "Muza",
+      "year": "1970",
+      "id": "85"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Moja Warszawa",
+      "w": "Muza",
+      "year": "1972",
+      "id": "86"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Z tobą na zawsze",
+      "w": "Muza",
+      "year": "1972",
+      "id": "87"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Witaj gwiazdko złota",
+      "w": "Muza",
+      "year": "1972",
+      "id": "88"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Jubileusz",
+      "w": "Muza",
+      "year": "1973",
+      "id": "89"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "I. Santor",
+      "w": "Muza",
+      "year": "1976",
+      "id": "90"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Baśnie Andersena śpiewa I. Santor",
+      "w": "Veriton",
+      "year": "1976",
+      "id": "91"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "I. Santor",
+      "w": "Pronit",
+      "year": "1978",
+      "id": "92"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Telegram miłości",
+      "w": "Pronit",
+      "year": "1979",
+      "id": "93"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "CDN",
+      "w": "Muza",
+      "year": "1982",
+      "id": "94"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Przeboje pana Stanisława",
+      "w": "Muza",
+      "year": "1982",
+      "id": "95"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "I. Santor w piosenkach Ryszarda Szeremety",
+      "w": "Poljazz",
+      "year": "1985",
+      "id": "96"
+    },
+    {
+      "type": "LP",
+      "artist": "Irena Santor",
+      "title": "Biegnie czas",
+      "w": "Muza",
+      "year": "1990",
+      "id": "97"
+    },
+    {
+      "type": "CC",
+      "artist": "Irena Santor",
+      "title": "Biegnie czas",
+      "w": "PN Edition",
+      "year": "1990",
+      "id": "98"
+    },
+    {
+      "type": "CC",
+      "artist": "Irena Santor",
+      "title": "Gdy się Chrystus rodzi",
+      "w": "Muza",
+      "year": "1992",
+      "id": "99"
+    },
+    {
+      "type": "CC",
+      "artist": "Irena Santor",
+      "title": "Kolędy Polskie",
+      "w": "Gamma",
+      "year": "1993",
+      "id": "100"
+    },
+    {
+      "type": "CC",
+      "artist": "Irena Santor",
+      "title": "Miło wspomnieć",
+      "w": "Muza",
+      "year": "1993",
+      "id": "101"
+    },
+    {
+      "type": "CC",
+      "artist": "Irena Santor",
+      "title": "Duety",
+      "w": "Pomaton EMI",
+      "year": "1996",
+      "id": "102"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Biegnie czas",
+      "w": "PN Edition",
+      "year": "1990",
+      "id": "103"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Gdy się Chrystus rodzi",
+      "w": "Muza",
+      "year": "1992",
+      "id": "104"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Trzeba marzyć Bravo",
+      "year": "1992",
+      "id": "105"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Warszawa, ja i ty",
+      "w": "Muza",
+      "year": "1993",
+      "id": "106"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Złote przeboje Wifon",
+      "year": "1993",
+      "id": "107"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Miło wspomnieć",
+      "w": "Muza",
+      "year": "1993",
+      "id": "108"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Piosenki stare jak świat",
+      "w": "Muza",
+      "year": "1993",
+      "id": "109"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Wiara przenosi góry",
+      "w": "PN Edition",
+      "year": "1995",
+      "id": "110"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Duety",
+      "w": "Pomaton EMI",
+      "year": "1996",
+      "id": "111"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Tych lat nie odda nikt",
+      "w": "Muza",
+      "year": "1997",
+      "id": "112"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Baśnie Andersena śpiewa I. Santor",
+      "w": "MTJ",
+      "year": "1997",
+      "id": "113"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Przeboje Moniuszki",
+      "w": "Muza",
+      "year": "1998",
+      "id": "114"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 1",
+      "w": "Muza",
+      "year": "1998",
+      "id": "115"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 2",
+      "w": "Muza",
+      "year": "1998",
+      "id": "116"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 3",
+      "w": "Muza",
+      "year": "1999",
+      "id": "117"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 4",
+      "w": "Muza",
+      "year": "1999",
+      "id": "118"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 5",
+      "w": "Muza",
+      "year": "1999",
+      "id": "119"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 6 A/B",
+      "w": "Muza",
+      "year": "1999",
+      "id": "120"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 7 A/B",
+      "w": "Muza",
+      "year": "1999",
+      "id": "121"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 8 A/B",
+      "w": "Muza",
+      "year": "1999",
+      "id": "122"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 9",
+      "w": "Muza",
+      "year": "1999",
+      "id": "123"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 10",
+      "w": "Muza",
+      "year": "1999",
+      "id": "124"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Złota kolekcja: I. Santor Embarras vol. 1",
+      "w": "Pomaton EMI",
+      "year": "1999",
+      "id": "125"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 11",
+      "w": "Muza",
+      "year": "2000",
+      "id": "126"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 12",
+      "w": "Muza",
+      "year": "2000",
+      "id": "127"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Besa me mucho (singel - jeden utwór)",
+      "w": "Pomaton EMI",
+      "year": "2000",
+      "id": "128"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Na moją głowę lecą krople deszczu (singel - jeden utwór)",
+      "w": "Pomaton EMI",
+      "year": "2000",
+      "id": "129"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "C'est si bon (singel - jeden utwór)",
+      "w": "Pomaton EMI",
+      "year": "2000",
+      "id": "130"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Santor Cafe",
+      "w": "Pomaton EMI",
+      "year": "2000",
+      "id": "131"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Moje piosenki, vol. 13",
+      "w": "Muza",
+      "year": "2001",
+      "id": "132"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Kolory mojej Warszawy, vol. 1-2",
+      "w": "PR SA",
+      "year": "2001",
+      "id": "133"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Jeszcze kochasz mnie (singel - jeden utwór)",
+      "w": "Pomaton EMI",
+      "year": "2002",
+      "id": "134"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Jeszcze",
+      "w": "Pomaton EMI",
+      "year": "2002",
+      "id": "135"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Duety/Santor Cafe, vol. 1-2",
+      "w": "Pomaton EMI",
+      "year": "2004",
+      "id": "136"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Złota kolekcja: I. Santor Tych lat nie odda nikt vol. 2",
+      "w": "Pomaton EMI",
+      "year": "2004",
+      "id": "137"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Urodziny Ireny Santor",
+      "w": "Pomaton EMI",
+      "year": "2010",
+      "id": "138"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Kręci mnie ten świat",
+      "w": "Licomp Empik Multimedia",
+      "year": "2010",
+      "id": "139"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Delicje z Podwieczorków przy mikrofonie, vol. 1-3",
+      "w": "PR SA",
+      "year": "2013",
+      "id": "140"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Wśród nocnej ciszy",
+      "w": "PN Muza",
+      "year": "2013",
+      "id": "141"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Zamyślenia",
+      "w": "My Music",
+      "year": "2014",
+      "id": "142"
+    },
+    {
+      "type": "CD",
+      "artist": "Irena Santor",
+      "title": "Punkt widzenia",
+      "w": "Polskie Radio SA, Agencja Muzyczna",
+      "year": "2014",
+      "id": "143"
+    }
+  ]
+}

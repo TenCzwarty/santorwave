@@ -32,57 +32,8 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 
-const playlistData = [
-  {
-    id: "1",
-    type: "CD",
-    title: "Warszawa Ja I Ty",
-    artist: "Irena Santor",
-    duration: "7:20",
-  },
-  {
-    id: "2",
-    type: "CC",
-    title: "Obejmij mnie",
-    artist: "Irena Santor",
-    duration: "3:48",
-  },
-  {
-    id: "3",
-    type: "LP",
-    title: "Dla Ciebie",
-    artist: "Irena Santor",
-    duration: "19:36",
-  },
-  {
-    id: "4",
-    type: "SP",
-    title: "Kowalem Swego Szczęścia Każdy Bywa Sam",
-    artist: "Irena Santor",
-    duration: "3:32",
-  },
-  {
-    id: "5",
-    type: "video",
-    title: "Sopot",
-    artist: "Irena Santor",
-    duration: "4:15",
-  },
-  {
-    id: "6",
-    type: "GR",
-    title: "Maleńki znak",
-    artist: "Irena Santor",
-    duration: "4:15",
-  },
-  {
-    id: "7",
-    type: "EP",
-    title: "Maleńki znak",
-    artist: "Irena Santor",
-    duration: "4:15",
-  },
-];
+import data from "@/server/db/mock.json";
+const playlistData = data.releases;
 
 const getIcon = (type: string) => {
   const icons = {
@@ -116,7 +67,7 @@ export default function VaporwavePlaylist() {
   return (
     <main className="container mx-auto px-4 py-16">
       <h1 className="glitch-text mb-8 text-center text-6xl font-bold">
-        Vaporwave Playlist
+        Releases
       </h1>
 
       {/* Search, Sort, and Filter Controls */}
@@ -176,9 +127,7 @@ export default function VaporwavePlaylist() {
                   <h2 className="text-xl font-semibold">{item.title}</h2>
                   <p className="text-sm text-gray-300">{item.artist}</p>
                 </div>
-                <div className="mr-4 text-sm text-gray-300">
-                  {item.duration}
-                </div>
+                <div className="mr-4 text-sm text-gray-300">{item.year}</div>
                 {playing === item.id ? (
                   <Pause
                     className="h-6 w-6 cursor-pointer text-pink-300 transition-colors hover:text-pink-400"
@@ -199,7 +148,7 @@ export default function VaporwavePlaylist() {
               </div>
             </AccordionTrigger>
             <AccordionContent className="px-4 py-2 text-gray-200">
-              more info
+              <pre>{JSON.stringify(item, null, 2)}</pre>
             </AccordionContent>
           </AccordionItem>
         ))}

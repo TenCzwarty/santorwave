@@ -37,32 +37,6 @@ export default function VaporwaveLanding() {
             <p>Let the waves of synthesizer melodies wash over you.</p>
           </div>
         </section>
-
-        <section className="text-center">
-          <h2 className="mb-8 text-4xl font-bold">Aperitif</h2>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <img
-              src="https://i.discogs.com/JeFb2sfpnKEkOLUJnauj0D-IYPjiOw7AYwmYpRF5bwU/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MDY1/ODczLTE2MDI4Mjgx/MTEtMjQwNC5qcGVn.jpeg"
-              alt="Dotyk"
-              className="h-auto w-full rounded-lg opacity-80 transition-opacity hover:opacity-100"
-            />
-            <img
-              src="https://i.discogs.com/qbgm66KmPxmTE6_NJQmUuYff_BYuoTuoTu3TZ83VxoY/rs:fit/g:sm/q:90/h:591/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIwNjc5/MDc5LTE2MzUyNDA3/OTUtNjc1NS5qcGVn.jpeg"
-              alt="Warszawa Ja I Ty"
-              className="h-auto w-full rounded-lg opacity-80 transition-opacity hover:opacity-100"
-            />
-            <img
-              src="https://i.discogs.com/FhcENlTT0iRNjDGivw6dsaYoL8WY_Czb9m0qNVx_CJE/rs:fit/g:sm/q:90/h:592/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIyMzIy/MjMtMTQwODgyMzEz/NC0xOTM1LmpwZWc.jpeg"
-              alt="Urszula Sipińska"
-              className="h-auto w-full rounded-lg opacity-80 transition-opacity hover:opacity-100"
-            />
-            <img
-              src="https://i.discogs.com/toPWrRQfU_PRYf4qP7Gdn5DHdZj1-yjErPFb4e4mOC4/rs:fit/g:sm/q:90/h:593/w:591/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQwMTg5/NDItMTM1MjYyMTYz/NC0zNjAwLmpwZWc.jpeg"
-              alt="Zdzisława Sośnicka"
-              className="h-auto w-full rounded-lg opacity-80 transition-opacity hover:opacity-100"
-            />
-          </div>
-        </section>
       </main>
     </div>
   );
