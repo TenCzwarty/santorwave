@@ -1,5 +1,6 @@
 export { metadata } from "@/components/layout/metadata";
 
+import { AudioVisualizer } from "@/components/audio-visualizer";
 import { fontClasses } from "@/components/layout/font";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
@@ -12,6 +13,8 @@ export default function RootLayout({ children }: Children) {
         <Header />
         {children}
         <Footer />
+
+        <AudioVisualizer />
       </body>
     </html>
   );
