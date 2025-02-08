@@ -38,7 +38,7 @@ export const useGlitchedText = (text: string) => {
     }
 
     return () => clearInterval(textUpdateInterval);
-  }, [isGlitchActive]);
+  }, [text, isGlitchActive]);
 
   return glitchedText;
 };

@@ -1,6 +1,10 @@
 "use client";
 
-import { ForwardRefExoticComponent, RefAttributes, useState } from "react";
+import {
+  type ForwardRefExoticComponent,
+  type RefAttributes,
+  useState,
+} from "react";
 import {
   Music,
   Video,
@@ -15,7 +19,7 @@ import {
   SquareAsterisk,
   Disc2,
   Circle,
-  LucideProps,
+  type LucideProps,
 } from "lucide-react";
 import {
   Accordion,

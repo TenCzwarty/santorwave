@@ -8,7 +8,7 @@ import {
 const createTable = singlestoreTableCreator((name) => `santorwave_${name}`);
 
 const getId = (name = "id") =>
-  bigint("id", { mode: "number", unsigned: true }).notNull();
+  bigint(name, { mode: "number", unsigned: true }).notNull();
 
 const getPrimaryKey = () => getId().primaryKey().autoincrement();
 

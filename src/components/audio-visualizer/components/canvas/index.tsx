@@ -11,7 +11,7 @@ import type {
 
 import { BAR_RADIUS, MAX_HEIGTH, SCALE_HEIGHT } from "./const";
 
-const useCanvas = () => {
+const useCanvasBehaviour = () => {
   const { width, height } = useWindowSize();
 
   const ref = React.useRef<HTMLCanvasElement>(null);
@@ -28,7 +28,7 @@ const useCanvas = () => {
     canvas.height = height ?? 0;
 
     setCanvasContext(canvas.getContext("2d"));
-  }, [ref.current]);
+  }, [width, height]);
 
   const clearCanvas = () => {
     if (!canvasContext) return;
@@ -84,8 +84,8 @@ const useCanvas = () => {
   return { ref, drawBarsFrame };
 };
 
-export const getCanvas = (): GetCanvasReturnType => {
-  const { ref, drawBarsFrame } = useCanvas();
+export const useCanvas = (): GetCanvasReturnType => {
+  const { ref, drawBarsFrame } = useCanvasBehaviour();
 
   const element = (
     <canvas

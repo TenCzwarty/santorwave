@@ -6,16 +6,16 @@ import { useAudioAnalyser } from "./helpers/use-audio-analyser";
 
 import type { GetAudioReturnType } from "./types";
 
-const useAudio = () => {
+const useAudioBehaviour = () => {
   const [isPaused, setIsPaused] = React.useState(true);
 
   const [ref, analyser] = useAudioAnalyser();
 
-  const play = (onPlay: VoidFunction) => {
+  const play = async (onPlay: VoidFunction) => {
     if (!ref?.current) return;
     if (!isPaused) return;
 
-    ref.current.play();
+    await ref.current.play();
     onPlay();
   };
 
@@ -44,8 +44,8 @@ const useAudio = () => {
   return { ref, play, pause, getCurrentAudioArray };
 };
 
-export const getAudio = (src: string): GetAudioReturnType => {
-  const { ref, play, pause, getCurrentAudioArray } = useAudio();
+export const useAudio = (src: string): GetAudioReturnType => {
+  const { ref, play, pause, getCurrentAudioArray } = useAudioBehaviour();
 
   const element = <audio ref={ref} className="hidden" src={src} />;
 

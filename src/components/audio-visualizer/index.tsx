@@ -2,8 +2,8 @@
 
 import React from "react";
 
-import { getAudio } from "./components/audio";
-import { getCanvas } from "./components/canvas";
+import { useAudio } from "./components/audio";
+import { useCanvas } from "./components/canvas";
 
 import { Play, Pause, Loader } from "lucide-react";
 
@@ -11,10 +11,10 @@ export const AudioVisualizer = () => {
   const [isPaused, setIsPaused] = React.useState(true);
   const [isPlaying, setIsPlaying] = React.useState(false);
 
-  const [canvasElement, canvas] = getCanvas();
-  const [audioElement, audio] = getAudio("/warszawave.mp3");
+  const [canvasElement, canvas] = useCanvas();
+  const [audioElement, audio] = useAudio("/warszawave.mp3");
 
-  let animationFrameId = React.useRef(0);
+  const animationFrameId = React.useRef(0);
 
   const renderFrame = () => {
     animationFrameId.current = requestAnimationFrame(renderFrame);
@@ -34,10 +34,10 @@ export const AudioVisualizer = () => {
     }
   };
 
-  const onPlay = () => {
+  const onPlay = async () => {
     setIsPlaying(true);
     setIsPaused(false);
-    audio.play(renderFrame);
+    await audio.play(renderFrame);
   };
 
   const onPause = () => {

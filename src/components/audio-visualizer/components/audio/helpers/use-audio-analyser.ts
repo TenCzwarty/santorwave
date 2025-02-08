@@ -31,7 +31,7 @@ export const useAudioAnalyser = (): UseAudioAnalyserReturnType => {
 
     setAnalyser(analyser);
     setAudioArray(audioArray);
-  }, [ref.current]);
+  }, []);
 
   const getCurrentAudioArray = () => {
     if (!analyser) return;
