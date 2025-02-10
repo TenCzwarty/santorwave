@@ -1,34 +1,70 @@
-import Link from "next/link";
+"use client";
 
-export const Header = () => (
-  <header className="flex items-center justify-between p-4">
-    <div className="text-2xl font-bold tracking-wider">アエステティック</div>
-    <nav>
-      <ul className="flex space-x-4">
-        <li>
-          <Link href="/" className="transition-colors hover:text-pink-200">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/releases"
-            className="transition-colors hover:text-pink-200"
+import React from "react";
+import Link from "next/link";
+import { useClickAway } from "@uidotdev/usehooks";
+import {
+  AppBar,
+  Button,
+  MenuList,
+  MenuListItem,
+  Separator,
+  Toolbar,
+} from "react95";
+import { Logo } from "@react95/icons";
+
+import { Win95ThemePicker } from "@/components/win-95/theme-picker";
+
+export const Header = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const ref = useClickAway(() => {
+    setIsOpen(false);
+  });
+
+  return (
+    <AppBar className="!static z-10 flex h-[50px] justify-center">
+      <Toolbar style={{ justifyContent: "space-between" }}>
+        <div style={{ position: "relative", display: "inline-block" }}>
+          <Button
+            onClick={() => setIsOpen(true)}
+            active={isOpen}
+            style={{ fontWeight: "bold" }}
           >
-            Releases
-          </Link>
-        </li>
-        <li>
-          <a href="#" className="transition-colors hover:text-pink-200">
-            Playlists
-          </a>
-        </li>
-        <li>
-          <a href="#" className="transition-colors hover:text-pink-200">
-            About
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-);
+            <Logo variant="32x32_4" style={{ marginRight: 4 }} />
+            Start
+          </Button>
+
+          {isOpen && (
+            <MenuList
+              ref={ref}
+              style={{
+                position: "absolute",
+                left: "0",
+                top: "100%",
+              }}
+              onClick={() => setIsOpen(false)}
+            >
+              <MenuListItem>
+                <Link href="/">Home</Link>
+              </MenuListItem>
+              <MenuListItem>
+                <Link href="/releases">Releases</Link>
+              </MenuListItem>
+              <MenuListItem disabled>Songs</MenuListItem>
+              <MenuListItem disabled>Playlists</MenuListItem>
+              <Separator />
+              <MenuListItem disabled>Logout</MenuListItem>
+              <MenuListItem disabled>アエステティック</MenuListItem>
+            </MenuList>
+          )}
+        </div>
+
+        <div className="flex items-center">
+          <p className="mx-2">choose your vibe</p>
+          <Win95ThemePicker />
+        </div>
+      </Toolbar>
+    </AppBar>
+  );
+};

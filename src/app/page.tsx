@@ -1,24 +1,21 @@
 "use client";
 import React from "react";
-import { Canvas } from "@react-three/fiber";
 
 import Link from "next/link";
 import { Palmtree, Tv, Headphones } from "lucide-react";
 import { useGlitchedText } from "@/components/helpers/useGlitchedText";
-
-import { Model } from "@/components/model";
+import { ClippyProvider, AGENTS } from "@react95/clippy";
+import { ModelDavidsHead } from "@/components/model/davids-head";
 
 export default function VaporwaveLanding() {
   const glitchText = useGlitchedText("SANTORWAVE");
 
   return (
     <div>
-      <Canvas className="!pointer-events-none !absolute left-0 top-0 -z-10 h-full w-full opacity-50">
-        <ambientLight intensity={0.5} />
-        <pointLight position={[1, 1, 1]} intensity={1} color="pink" />
-        <Model src="/david_head.glb" />
-      </Canvas>
-      <main className="container mx-auto px-4 py-16">
+      <ClippyProvider agentName={AGENTS.GENIE}></ClippyProvider>
+      <ModelDavidsHead />
+
+      <main className="container mx-auto h-[1000px] px-4 py-16">
         <section className="mb-16 text-center">
           <h1 className="glitch-text mb-4 text-6xl font-bold">{glitchText}</h1>
           <p className="mb-8 text-xl">embrace the connection between worlds</p>

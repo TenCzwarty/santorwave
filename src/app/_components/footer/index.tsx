@@ -1,9 +1,27 @@
+"use client";
+
+import React from "react";
+import { AppBar, Button, Handle, Toolbar } from "react95";
+
 export const Footer = () => (
-  <footer className="mt-16 bg-indigo-900 py-8 text-white">
-    <div className="container mx-auto px-4 text-center">
-      <p>&copy; {new Date().getFullYear()} SantorWave. All rights reserved.</p>
-      <p className="mt-2">Curated with 懐かしさ (nostalgia)</p>
-      {/* <p className="mt-2">Created with 永遠の愛 (eternal love)</p> */}
-    </div>
-  </footer>
+  <div>
+    <footer className="fixed bottom-0 left-0 w-full">
+      <AppBar as="div" style={{ position: "relative" }}>
+        <Toolbar>
+          <Button variant="menu">Home</Button>
+          <Button variant="menu">Stack</Button>
+
+          <Handle size={35} />
+          <p className="mx-4">
+            &copy; {new Date().getFullYear()} SantorWave. Curated with 懐かしさ
+            (nostalgia)
+          </p>
+
+          <Button variant="menu" disabled style={{ marginLeft: "auto" }}>
+            Options
+          </Button>
+        </Toolbar>
+      </AppBar>
+    </footer>
+  </div>
 );

@@ -12,7 +12,7 @@ export const AudioVisualizer = () => {
   const [isPlaying, setIsPlaying] = React.useState(false);
 
   const [canvasElement, canvas] = useCanvas();
-  const [audioElement, audio] = useAudio("/warszawave.mp3");
+  const [audioElement, audio] = useAudio("/audio/warszawave.mp3");
 
   const animationFrameId = React.useRef(0);
 
@@ -47,7 +47,7 @@ export const AudioVisualizer = () => {
 
   return (
     <>
-      <div className="p-4">
+      <div className="absolute bottom-[100px] p-4">
         {isPaused && isPlaying && <Loader className="animate-spin" />}
 
         {!isPaused && isPlaying && (
