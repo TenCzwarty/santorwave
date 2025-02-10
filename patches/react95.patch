@@ -1,0 +1,46 @@
+diff --git a/dist/common/hooks/useIsFocusVisible.js b/dist/common/hooks/useIsFocusVisible.js
+index 6a1444797a4db9e944016b9f14370fc87fca3e2c..a9101e37e8124e8005f94044a19464d29cdc1cd5 100644
+--- a/dist/common/hooks/useIsFocusVisible.js
++++ b/dist/common/hooks/useIsFocusVisible.js
+@@ -3,7 +3,7 @@
+ Object.defineProperty(exports, '__esModule', { value: true });
+ 
+ var React = require('react');
+-var reactDom = require('react-dom');
++// var reactDom = require('react-dom');
+ 
+ let hadKeyboardEvent = true;
+ let hadFocusVisibleRecently = false;
+@@ -77,8 +77,8 @@ function handleBlurVisible() {
+   }, 100);
+ }
+ function useIsFocusVisible() {
+-  const ref = React.useCallback((instance) => {
+-    const node = reactDom.findDOMNode(instance);
++  const ref = React.useCallback((node) => {
++    // const node = reactDom.findDOMNode(instance);
+     if (node != null) {
+       prepare(node.ownerDocument);
+     }
+diff --git a/dist/common/hooks/useIsFocusVisible.mjs b/dist/common/hooks/useIsFocusVisible.mjs
+index afef84458556114e4cb86c3a2c19ae5487305a30..15340c76f324389f8bf05240b1a93930b326c709 100644
+--- a/dist/common/hooks/useIsFocusVisible.mjs
++++ b/dist/common/hooks/useIsFocusVisible.mjs
+@@ -1,5 +1,5 @@
+ import { useCallback } from 'react';
+-import { findDOMNode } from 'react-dom';
++// import { findDOMNode } from 'react-dom';
+ 
+ let hadKeyboardEvent = true;
+ let hadFocusVisibleRecently = false;
+@@ -73,8 +73,8 @@ function handleBlurVisible() {
+   }, 100);
+ }
+ function useIsFocusVisible() {
+-  const ref = useCallback((instance) => {
+-    const node = findDOMNode(instance);
++  const ref = useCallback((node) => {
++    // const node = findDOMNode(instance);
+     if (node != null) {
+       prepare(node.ownerDocument);
+     }
