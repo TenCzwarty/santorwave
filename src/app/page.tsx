@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { memo } from "react";
 
 import Link from "next/link";
 import { Palmtree, Tv, Headphones } from "lucide-react";
@@ -7,13 +7,16 @@ import { useGlitchedText } from "@/components/helpers/useGlitchedText";
 import { ClippyProvider, AGENTS } from "@react95/clippy";
 import { ModelDavidsHead } from "@/components/model/davids-head";
 
+const MemoizedModelDavidsHead = memo(ModelDavidsHead);
+
 export default function VaporwaveLanding() {
   const glitchText = useGlitchedText("SANTORWAVE");
 
   return (
     <div>
       <ClippyProvider agentName={AGENTS.GENIE}></ClippyProvider>
-      <ModelDavidsHead />
+
+      <MemoizedModelDavidsHead />
 
       <main className="container mx-auto h-[1000px] px-4 py-16">
         <section className="mb-16 text-center">
