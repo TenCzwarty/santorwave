@@ -236,16 +236,6 @@
   animation: marquee 10s linear infinite;
 }
 
-/* Hide native scrollbar */
-.scrollbar-hidden::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hidden {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
 /*
  * react95 draws the checkbox tick as a 3px-wide box with a 3px border. Under
  * Tailwind's preflight (`box-sizing: border-box` everywhere) the border eats
@@ -260,6 +250,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 0.5rem;
 }
 
 .win95-checkbox-list label {

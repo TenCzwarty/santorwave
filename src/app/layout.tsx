@@ -4,7 +4,6 @@ import { fontClasses } from "@/app/_helpers/font";
 import { Win95ThemeProvider } from "@/components/win-95/provider";
 import { ThemedBackground } from "@/components/win-95/themed-background";
 import { PlayerProvider } from "@/components/player-provider";
-import { CustomScrollbar } from "@/components/win-95/custom-scrollbar";
 import { Header } from "@/app/_components/header";
 import { Footer } from "@/app/_components/footer";
 
@@ -18,9 +17,8 @@ export default function RootLayout({ children }: Children) {
           <ThemedBackground>
             <PlayerProvider>
               <Header />
-              <CustomScrollbar>
-                {children}
-              </CustomScrollbar>
+              {/* The page scrolls inside this box; header and footer stay put. */}
+              <div className="h-screen overflow-y-auto">{children}</div>
               <Footer />
             </PlayerProvider>
           </ThemedBackground>

@@ -23,8 +23,9 @@ import {
 } from "@/lib/audio";
 
 const WINDOW_WIDTH = 280;
-const WINDOW_HEIGHT = 450;
 const EDGE_MARGIN = 20;
+/** Height of the fixed footer bar the window must not slide under. */
+const FOOTER_HEIGHT = 50;
 
 type AudioEffectsProps = {
   /** The effects chain owned by the player provider. */
@@ -110,20 +111,6 @@ export const AudioEffects = ({
     };
   }, [isDragging]);
 
-  /**
-   * Park the window bottom-right the first time it appears. `null` rather than
-   * `{x: 0, y: 0}` as the initial value, so dragging it into the top-left
-   * corner does not look like "never positioned" and snap it back.
-   */
-  useEffect(() => {
-    if (!isPlaying || position) return;
-
-    setPosition({
-      x: window.innerWidth - WINDOW_WIDTH - EDGE_MARGIN,
-      y: window.innerHeight - WINDOW_HEIGHT,
-    });
-  }, [isPlaying, position]);
-
   const toggleVaporwave = () => {
     applyPreset(vaporwave ? DEFAULT_AUDIO_EFFECTS : VAPORWAVE_AUDIO_EFFECTS);
   };
@@ -135,15 +122,19 @@ export const AudioEffects = ({
     await (onStop ? onStop() : fadeOut());
   };
 
-  if (!isPlaying || !position) return null;
+  if (!isPlaying) return null;
 
   return (
     <div
       ref={windowRef}
       className="fixed z-50"
       style={{
-        left: position.x,
-        top: position.y,
+        // Until dragged, anchor bottom-right above the footer. Anchoring by
+        // `bottom` instead of computing `top` from a guessed height keeps the
+        // whole window on screen however tall its content is.
+        ...(position
+          ? { left: position.x, top: position.y }
+          : { right: EDGE_MARGIN, bottom: FOOTER_HEIGHT + EDGE_MARGIN }),
         cursor: isDragging ? "grabbing" : "default",
       }}
     >
