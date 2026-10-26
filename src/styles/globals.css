@@ -61,12 +61,14 @@
 @layer base {
   * {
     @apply border-border;
+    transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
   }
   body {
     @apply bg-background text-foreground;
   }
 }
 
+/* Glitch text effect */
 @keyframes glitch {
   0% {
     text-shadow:
@@ -114,4 +116,132 @@
 
 .glitch-text {
   animation: glitch 500ms infinite;
+}
+
+/* Release card hover effects */
+.release-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.release-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Scanline effect for retro feel */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  opacity: 0.3;
+}
+
+/* Neon glow effect */
+.neon-glow {
+  text-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 40px currentColor;
+}
+
+/* Type badges */
+.type-badge {
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--theme-glass-border);
+}
+
+/* Theme-aware card styling */
+.theme-card {
+  background: var(--theme-glass);
+  border: 1px solid var(--theme-glass-border);
+  backdrop-filter: blur(12px);
+}
+
+.theme-card:hover {
+  background: var(--theme-glass-hover);
+}
+
+/* Theme-aware button */
+.theme-button {
+  background: #e91e8c;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.theme-button:hover {
+  background: #ff6b9d;
+}
+
+/* Theme input styling */
+.theme-input {
+  background: var(--theme-glass);
+  border: 1px solid var(--theme-glass-border);
+  color: var(--theme-text-primary);
+}
+
+.theme-input::placeholder {
+  color: var(--theme-text-muted);
+}
+
+.theme-input:focus {
+  border-color: var(--theme-accent);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--theme-accent);
+}
+
+/* Animated gradient button */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Marquee/ticker text animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-text {
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+
+/* Hide native scrollbar */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

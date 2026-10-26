@@ -5,6 +5,16 @@ import { useServerInsertedHTML } from "next/navigation";
 import { ServerStyleSheet, StyleSheetManager } from "styled-components";
 import isPropValid from "@emotion/is-prop-valid";
 
+// Filter out non-standard props to prevent React DOM warnings
+const shouldForwardProp = (propName: string, target: unknown) => {
+  // For HTML elements, only forward valid HTML attributes
+  if (typeof target === "string") {
+    return isPropValid(propName);
+  }
+  // For custom components, forward all props
+  return true;
+};
+
 export default function StyledComponentsRegistry({
   children,
 }: {
@@ -20,12 +30,16 @@ export default function StyledComponentsRegistry({
     return <>{styles}</>;
   });
 
-  const shouldForwardProp = (propName: string, target: unknown) => {
-    return typeof target === "string" ? isPropValid(propName) : true;
-  };
+  // On the client, we still need StyleSheetManager for shouldForwardProp
+  if (typeof window !== "undefined") {
+    return (
+      <StyleSheetManager shouldForwardProp={shouldForwardProp}>
+        {children}
+      </StyleSheetManager>
+    );
+  }
 
-  if (typeof window !== "undefined") return <>{children}</>;
-
+  // On the server, also include the sheet for SSR
   return (
     <StyleSheetManager
       sheet={styledComponentsStyleSheet.instance}

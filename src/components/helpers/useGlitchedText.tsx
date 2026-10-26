@@ -19,23 +19,31 @@ export const useGlitchedText = (text: string) => {
   const [isGlitchActive, setIsGlitchActive] = React.useState(false);
 
   React.useEffect(() => {
+    let glitchTimeout: ReturnType<typeof setTimeout> | undefined;
+
     const glitchDelayInterval = setInterval(() => {
       setIsGlitchActive(true);
-      setTimeout(() => setIsGlitchActive(false), DURATION_GLITCH);
+      glitchTimeout = setTimeout(() => setIsGlitchActive(false), DURATION_GLITCH);
     }, DURATION_GLITCH_DELAY);
 
-    return () => clearInterval(glitchDelayInterval);
+    return () => {
+      clearInterval(glitchDelayInterval);
+      clearTimeout(glitchTimeout);
+    };
   }, []);
 
   React.useEffect(() => {
-    let textUpdateInterval: NodeJS.Timeout;
-
-    if (isGlitchActive) {
-      textUpdateInterval = setInterval(
-        () => setGlitchedText(randomizeText(text)),
-        DURATION_TEXT_UPDATE,
-      );
+    // Restore the clean text between glitches — otherwise the last scrambled
+    // frame stayed on screen until the next glitch.
+    if (!isGlitchActive) {
+      setGlitchedText(text);
+      return;
     }
+
+    const textUpdateInterval = setInterval(
+      () => setGlitchedText(randomizeText(text)),
+      DURATION_TEXT_UPDATE,
+    );
 
     return () => clearInterval(textUpdateInterval);
   }, [text, isGlitchActive]);
