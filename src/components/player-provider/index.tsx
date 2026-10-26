@@ -1,13 +1,29 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
+
+import { usePathname } from "next/navigation";
 
 import { AudioEffects } from "@/components/audio-effects";
 import { useAudioChain } from "@/lib/audio";
 import { useVisualizer } from "@/lib/hooks/use-visualizer";
 
 import { PlayerContext } from "./context";
-import type { PlayOptions, TrackInfo } from "./types";
+import type { CrackleControls, PlayOptions, TrackInfo } from "./types";
+
+const VINYL_CRACKLE_URL = "/audio/vinyl-crackle.mp3";
+const DEFAULT_VOLUME = 1;
+const DEFAULT_CRACKLE_VOLUME = 0.3;
+
+/** Pages that render their own full controls for the player. */
+const PAGES_WITH_OWN_CONTROLS = ["/lab"];
 
 interface PlayerProviderProps {
   children: ReactNode;
@@ -33,7 +49,8 @@ export function PlayerProvider({ children }: PlayerProviderProps) {
     setAudioElement(audioRef.current);
   }, []);
 
-  const chain = useAudioChain(audioElement);
+  const [volume, setVolume] = useState(DEFAULT_VOLUME);
+  const chain = useAudioChain(audioElement, { volume });
   const { prepare, fadeIn, fadeOut } = chain;
   const canvasElement = useVisualizer(chain.analyser);
 
@@ -82,6 +99,19 @@ export function PlayerProvider({ children }: PlayerProviderProps) {
     [currentTrack, isPlaying, prepare, fadeIn],
   );
 
+  const resume = useCallback(async () => {
+    const audio = audioRef.current;
+    if (!audio || !currentTrack) return;
+
+    try {
+      await prepare();
+      await audio.play();
+      setIsPlaying(true);
+    } catch (error) {
+      console.error("Failed to resume playback:", error);
+    }
+  }, [currentTrack, prepare]);
+
   const pause = useCallback(() => {
     audioRef.current?.pause();
     setIsPlaying(false);
@@ -99,24 +129,83 @@ export function PlayerProvider({ children }: PlayerProviderProps) {
     setCurrentTrack(null);
   }, []);
 
+  /**
+   * Vinyl crackle: a plain element straight to the speakers, outside the
+   * effects chain. Lives here — not in a UI component — so the floating window
+   * and the Audio Lab control the same crackle instead of each playing its own.
+   */
+  const crackleRef = useRef<HTMLAudioElement>(null);
+  const [crackleEnabled, setCrackleEnabled] = useState(true);
+  const [crackleVolume, setCrackleVolume] = useState(DEFAULT_CRACKLE_VOLUME);
+
+  useEffect(() => {
+    const crackle = crackleRef.current;
+    if (!crackle) return;
+
+    crackle.volume = crackleVolume;
+    if (isPlaying && crackleEnabled) {
+      crackle.play().catch(console.error);
+    } else {
+      crackle.pause();
+    }
+  }, [isPlaying, crackleEnabled, crackleVolume]);
+
+  const crackle = useMemo<CrackleControls>(
+    () => ({
+      enabled: crackleEnabled,
+      setEnabled: setCrackleEnabled,
+      volume: crackleVolume,
+      setVolume: setCrackleVolume,
+    }),
+    [crackleEnabled, crackleVolume],
+  );
+
+  const pathname = usePathname();
+  const showFloatingControls = !PAGES_WITH_OWN_CONTROLS.includes(pathname);
+
   const value = useMemo(
-    () => ({ isPlaying, currentTrack, playTrack, pause, stop }),
-    [isPlaying, currentTrack, playTrack, pause, stop],
+    () => ({
+      isPlaying,
+      currentTrack,
+      playTrack,
+      resume,
+      pause,
+      stop,
+      chain,
+      volume,
+      setVolume,
+      crackle,
+    }),
+    [
+      isPlaying,
+      currentTrack,
+      playTrack,
+      resume,
+      pause,
+      stop,
+      chain,
+      volume,
+      crackle,
+    ],
   );
 
   return (
     <PlayerContext.Provider value={value}>
       <audio ref={audioRef} crossOrigin="anonymous" onEnded={handleEnded} />
+      <audio ref={crackleRef} src={VINYL_CRACKLE_URL} loop preload="auto" />
 
       {/* Background visualizer canvas */}
       <div className="opacity-30">{canvasElement}</div>
 
-      <AudioEffects
-        chain={chain}
-        isPlaying={isPlaying}
-        trackInfo={currentTrack ?? undefined}
-        onStop={stop}
-      />
+      {showFloatingControls && (
+        <AudioEffects
+          chain={chain}
+          crackle={crackle}
+          isPlaying={isPlaying}
+          trackInfo={currentTrack ?? undefined}
+          onStop={stop}
+        />
+      )}
 
       {children}
     </PlayerContext.Provider>
@@ -125,4 +214,9 @@ export function PlayerProvider({ children }: PlayerProviderProps) {
 
 // Re-export hook and types
 export { usePlayer } from "./context";
-export type { TrackInfo, PlayOptions, PlayerContextValue } from "./types";
+export type {
+  TrackInfo,
+  PlayOptions,
+  PlayerContextValue,
+  CrackleControls,
+} from "./types";

@@ -1,7 +1,3 @@
-// Audio URLs
-export const MUSIC_URL = "/audio/warszawave.mp3";
-export const VINYL_CRACKLE_URL = "/audio/vinyl-crackle.mp3";
-
 // Slider styling class (uses theme CSS variables)
 export const SLIDER_CLASS = `w-full h-2 bg-theme-glass-hover rounded-full appearance-none cursor-pointer
   [&::-webkit-slider-thumb]:appearance-none

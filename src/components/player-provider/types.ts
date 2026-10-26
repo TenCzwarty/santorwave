@@ -1,3 +1,5 @@
+import type { AudioChain } from "@/lib/audio";
+
 export interface TrackInfo {
   id: string;
   title: string;
@@ -8,6 +10,14 @@ export interface TrackInfo {
 
 export interface PlayOptions {
   loop?: boolean;
+}
+
+export interface CrackleControls {
+  enabled: boolean;
+  setEnabled: (enabled: boolean) => void;
+  /** 0–1 */
+  volume: number;
+  setVolume: (volume: number) => void;
 }
 
 export interface PlayerContextValue {
@@ -21,6 +31,15 @@ export interface PlayerContextValue {
     trackInfo: TrackInfo,
     options?: PlayOptions,
   ) => Promise<void>;
+  /** Resumes the current track, if there is one. */
+  resume: () => Promise<void>;
   pause: () => void;
   stop: () => Promise<void>;
+
+  /** The effects chain of the one global `<audio>` element. */
+  chain: AudioChain;
+  /** Music volume, 0–1. */
+  volume: number;
+  setVolume: (volume: number) => void;
+  crackle: CrackleControls;
 }

@@ -245,3 +245,29 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/*
+ * react95 draws the checkbox tick as a 3px-wide box with a 3px border. Under
+ * Tailwind's preflight (`box-sizing: border-box` everywhere) the border eats
+ * the whole width and the tick collapses into a slash.
+ */
+[data-testid="checkmarkIcon"]::after {
+  box-sizing: content-box;
+}
+
+/* One checkbox per row; react95 labels are inline and wrapped side by side. */
+.win95-checkbox-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.win95-checkbox-list label {
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Keep the box square when a long label wraps. */
+.win95-checkbox-list label > [role="presentation"] {
+  flex-shrink: 0;
+}

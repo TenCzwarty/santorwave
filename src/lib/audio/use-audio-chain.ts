@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import {
   ANALYSER_FFT_SIZE,
@@ -173,7 +173,10 @@ export function useAudioChain(
     setIsFadingOut(true);
     gain.cancelScheduledValues(context.currentTime);
     gain.setValueAtTime(gain.value, context.currentTime);
-    gain.linearRampToValueAtTime(0, context.currentTime + FADE_DURATION_SECONDS);
+    gain.linearRampToValueAtTime(
+      0,
+      context.currentTime + FADE_DURATION_SECONDS,
+    );
 
     await new Promise<void>((resolve) => {
       fadeOutTimerRef.current = setTimeout(() => {
@@ -186,7 +189,10 @@ export function useAudioChain(
   }, []);
 
   const setEffect = useCallback(
-    <K extends keyof AudioEffectsState>(key: K, value: AudioEffectsState[K]) => {
+    <K extends keyof AudioEffectsState>(
+      key: K,
+      value: AudioEffectsState[K],
+    ) => {
       setEffects((previous) => ({ ...previous, [key]: value }));
     },
     [],
@@ -199,7 +205,11 @@ export function useAudioChain(
   // --- push state into the graph / element -------------------------------
 
   useEffect(() => {
-    if (audioElement) audioElement.playbackRate = effects.speed;
+    if (!audioElement) return;
+    // Loading a new `src` resets `playbackRate` to `defaultPlaybackRate`, so
+    // setting only the former lost the speed on every track change.
+    audioElement.defaultPlaybackRate = effects.speed;
+    audioElement.playbackRate = effects.speed;
   }, [audioElement, effects.speed]);
 
   useEffect(() => {
@@ -210,9 +220,7 @@ export function useAudioChain(
   useEffect(() => {
     const nodes = nodesRef.current;
     if (!nodes) return;
-    nodes.lofi.frequency.value = effects.lofi
-      ? LOFI_CUTOFF_HZ
-      : OPEN_CUTOFF_HZ;
+    nodes.lofi.frequency.value = effects.lofi ? LOFI_CUTOFF_HZ : OPEN_CUTOFF_HZ;
   }, [effects.lofi]);
 
   useEffect(() => {
@@ -246,14 +254,27 @@ export function useAudioChain(
     [],
   );
 
-  return {
-    effects,
-    setEffect,
-    applyPreset,
-    analyser,
-    isFadingOut,
-    prepare,
-    fadeIn,
-    fadeOut,
-  };
+  // Stable identity: the player puts this object in context.
+  return useMemo(
+    () => ({
+      effects,
+      setEffect,
+      applyPreset,
+      analyser,
+      isFadingOut,
+      prepare,
+      fadeIn,
+      fadeOut,
+    }),
+    [
+      effects,
+      setEffect,
+      applyPreset,
+      analyser,
+      isFadingOut,
+      prepare,
+      fadeIn,
+      fadeOut,
+    ],
+  );
 }

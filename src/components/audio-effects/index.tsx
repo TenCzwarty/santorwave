@@ -12,6 +12,7 @@ import {
   WindowHeader,
 } from "react95";
 
+import type { CrackleControls } from "@/components/player-provider/types";
 import {
   DEFAULT_AUDIO_EFFECTS,
   isVaporwavePreset,
@@ -21,9 +22,6 @@ import {
   type AudioChain,
 } from "@/lib/audio";
 
-const VINYL_CRACKLE_URL = "/audio/vinyl-crackle.mp3";
-const CRACKLE_VOLUME = 0.3;
-
 const WINDOW_WIDTH = 280;
 const WINDOW_HEIGHT = 450;
 const EDGE_MARGIN = 20;
@@ -31,6 +29,8 @@ const EDGE_MARGIN = 20;
 type AudioEffectsProps = {
   /** The effects chain owned by the player provider. */
   chain: AudioChain;
+  /** Vinyl crackle, also owned by the player provider. */
+  crackle: CrackleControls;
   /** Track info to display */
   trackInfo?: {
     title: string;
@@ -56,6 +56,7 @@ const sliderToSpeed = (value: number) =>
  */
 export const AudioEffects = ({
   chain,
+  crackle,
   trackInfo,
   onStop,
   isPlaying = true,
@@ -63,9 +64,8 @@ export const AudioEffects = ({
   const { effects, setEffect, applyPreset, isFadingOut, fadeOut } = chain;
   const vaporwave = isVaporwavePreset(effects);
 
-  // Vinyl crackle sits outside the effects chain, straight to the speakers.
-  const [crackleEnabled, setCrackleEnabled] = useState(true);
-  const crackleRef = useRef<HTMLAudioElement | null>(null);
+  const [coverFailed, setCoverFailed] = useState(false);
+  useEffect(() => setCoverFailed(false), [trackInfo?.coverUrl]);
 
   // Window drag state
   const [position, setPosition] = useState<{ x: number; y: number } | null>(
@@ -124,18 +124,6 @@ export const AudioEffects = ({
     });
   }, [isPlaying, position]);
 
-  useEffect(() => {
-    const crackle = crackleRef.current;
-    if (!crackle) return;
-
-    if (isPlaying && crackleEnabled) {
-      crackle.volume = CRACKLE_VOLUME;
-      crackle.play().catch(console.error);
-    } else {
-      crackle.pause();
-    }
-  }, [isPlaying, crackleEnabled]);
-
   const toggleVaporwave = () => {
     applyPreset(vaporwave ? DEFAULT_AUDIO_EFFECTS : VAPORWAVE_AUDIO_EFFECTS);
   };
@@ -147,138 +135,133 @@ export const AudioEffects = ({
     await (onStop ? onStop() : fadeOut());
   };
 
-  // Always mounted, in the same place in the tree: it used to live inside the
-  // window, which is not rendered until `position` is set, so on the very first
-  // play the crackle effect ran with a null ref and never started.
+  if (!isPlaying || !position) return null;
+
   return (
-    <>
-      <audio ref={crackleRef} src={VINYL_CRACKLE_URL} loop preload="auto" />
-      {isPlaying && position && (
-        <div
-          ref={windowRef}
-          className="fixed z-50"
-          style={{
-            left: position.x,
-            top: position.y,
-            cursor: isDragging ? "grabbing" : "default",
-          }}
+    <div
+      ref={windowRef}
+      className="fixed z-50"
+      style={{
+        left: position.x,
+        top: position.y,
+        cursor: isDragging ? "grabbing" : "default",
+      }}
+    >
+      <Window style={{ width: WINDOW_WIDTH }}>
+        <WindowHeader
+          className="flex select-none items-center justify-between gap-2"
+          style={{ cursor: isDragging ? "grabbing" : "grab" }}
+          onMouseDown={handleMouseDown}
         >
-          <Window style={{ width: WINDOW_WIDTH }}>
-            <WindowHeader
-              className="flex select-none items-center justify-between gap-2"
-              style={{ cursor: isDragging ? "grabbing" : "grab" }}
-              onMouseDown={handleMouseDown}
+          <div className="marquee-container pointer-events-none min-w-0 flex-1">
+            <span className="marquee-text">
+              {trackInfo
+                ? `${trackInfo.title} — ${trackInfo.artist}`
+                : "Audio Player"}
+            </span>
+          </div>
+          {onStop && (
+            <Button
+              size="sm"
+              onClick={handleFadeOutAndStop}
+              disabled={isFadingOut}
+              onMouseDown={(e) => e.stopPropagation()}
             >
-              <div className="marquee-container pointer-events-none min-w-0 flex-1">
-                <span className="marquee-text">
-                  {trackInfo
-                    ? `${trackInfo.title} — ${trackInfo.artist}`
-                    : "Audio Player"}
-                </span>
+              <span style={{ fontWeight: "bold" }}>×</span>
+            </Button>
+          )}
+        </WindowHeader>
+
+        <WindowContent>
+          {trackInfo && (
+            <div className="mb-3 flex items-center gap-3">
+              <div
+                className="flex h-12 w-12 flex-shrink-0 items-center justify-center border-2 border-gray-400 bg-black text-2xl"
+                style={{ borderStyle: "inset" }}
+              >
+                {trackInfo.coverUrl && !coverFailed ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={trackInfo.coverUrl}
+                    alt=""
+                    className="h-full w-full object-cover"
+                    onError={() => setCoverFailed(true)}
+                  />
+                ) : (
+                  <span aria-hidden>💿</span>
+                )}
               </div>
-              {onStop && (
-                <Button
-                  size="sm"
-                  onClick={handleFadeOutAndStop}
-                  disabled={isFadingOut}
-                  onMouseDown={(e) => e.stopPropagation()}
-                >
-                  <span style={{ fontWeight: "bold" }}>×</span>
-                </Button>
-              )}
-            </WindowHeader>
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-sm font-bold">{trackInfo.title}</p>
+                <p className="truncate text-xs">{trackInfo.artist}</p>
+              </div>
+            </div>
+          )}
 
-            <WindowContent>
-              {trackInfo?.coverUrl && (
-                <div className="mb-3 flex items-center gap-3">
-                  <div
-                    className="h-12 w-12 flex-shrink-0 border-2 border-gray-400"
-                    style={{ borderStyle: "inset" }}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={trackInfo.coverUrl}
-                      alt={trackInfo.title}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-bold">
-                      {trackInfo.title}
-                    </p>
-                    <p className="truncate text-xs">{trackInfo.artist}</p>
-                  </div>
-                </div>
-              )}
+          <Separator className="my-2" />
 
-              <Separator className="my-2" />
+          <Button
+            fullWidth
+            active={vaporwave || undefined}
+            onClick={toggleVaporwave}
+            style={{ marginBottom: 8 }}
+          >
+            ✨ {vaporwave ? "Vaporwave ON" : "Enable Vaporwave"}
+          </Button>
 
-              <Button
-                fullWidth
-                active={vaporwave || undefined}
-                onClick={toggleVaporwave}
-                style={{ marginBottom: 8 }}
-              >
-                ✨ {vaporwave ? "Vaporwave ON" : "Enable Vaporwave"}
-              </Button>
+          <GroupBox
+            label={`Speed: ${effects.speed.toFixed(2)}x`}
+            className="mb-2"
+          >
+            <Slider
+              min={0}
+              max={100}
+              value={speedToSlider(effects.speed)}
+              onChange={(value) => setEffect("speed", sliderToSpeed(value))}
+              marks={[
+                { value: 0, label: `${MIN_SPEED.toFixed(1)}x` },
+                { value: 50, label: "0.8x" },
+                { value: 100, label: `${MAX_SPEED.toFixed(1)}x` },
+              ]}
+            />
+          </GroupBox>
 
-              <GroupBox
-                label={`Speed: ${effects.speed.toFixed(2)}x`}
-                className="mb-2"
-              >
-                <Slider
-                  min={0}
-                  max={100}
-                  value={speedToSlider(effects.speed)}
-                  onChange={(value) => setEffect("speed", sliderToSpeed(value))}
-                  marks={[
-                    { value: 0, label: `${MIN_SPEED.toFixed(1)}x` },
-                    { value: 50, label: "0.8x" },
-                    { value: 100, label: `${MAX_SPEED.toFixed(1)}x` },
-                  ]}
-                />
-              </GroupBox>
+          <GroupBox label="Effects" className="mb-2">
+            <div className="win95-checkbox-list">
+              <Checkbox
+                checked={effects.pitchShift}
+                onChange={() => setEffect("pitchShift", !effects.pitchShift)}
+                label="Pitch follows speed (vinyl)"
+              />
+              <Checkbox
+                checked={effects.lofi}
+                onChange={() => setEffect("lofi", !effects.lofi)}
+                label="Lo-Fi filter"
+              />
+              <Checkbox
+                checked={effects.reverb}
+                onChange={() => setEffect("reverb", !effects.reverb)}
+                label="Reverb"
+              />
+              <Checkbox
+                checked={crackle.enabled}
+                onChange={() => crackle.setEnabled(!crackle.enabled)}
+                label="Vinyl crackle"
+              />
+            </div>
+          </GroupBox>
 
-              <GroupBox label="Effects" className="mb-2">
-                <div className="space-y-1">
-                  <Checkbox
-                    checked={effects.pitchShift}
-                    onChange={() =>
-                      setEffect("pitchShift", !effects.pitchShift)
-                    }
-                    label="Pitch follows speed (vinyl)"
-                  />
-                  <Checkbox
-                    checked={effects.lofi}
-                    onChange={() => setEffect("lofi", !effects.lofi)}
-                    label="Lo-Fi filter"
-                  />
-                  <Checkbox
-                    checked={effects.reverb}
-                    onChange={() => setEffect("reverb", !effects.reverb)}
-                    label="Reverb"
-                  />
-                  <Checkbox
-                    checked={crackleEnabled}
-                    onChange={() => setCrackleEnabled((previous) => !previous)}
-                    label="Vinyl crackle"
-                  />
-                </div>
-              </GroupBox>
-
-              {onStop && (
-                <Button
-                  fullWidth
-                  onClick={handleFadeOutAndStop}
-                  disabled={isFadingOut}
-                >
-                  {isFadingOut ? "Fading out..." : "⏹ Stop"}
-                </Button>
-              )}
-            </WindowContent>
-          </Window>
-        </div>
-      )}
-    </>
+          {onStop && (
+            <Button
+              fullWidth
+              onClick={handleFadeOutAndStop}
+              disabled={isFadingOut}
+            >
+              {isFadingOut ? "Fading out..." : "⏹ Stop"}
+            </Button>
+          )}
+        </WindowContent>
+      </Window>
+    </div>
   );
 };
