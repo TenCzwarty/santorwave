@@ -54,6 +54,25 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        // Win95 theme-aware colors
+        theme: {
+          accent: "var(--theme-accent)",
+          "accent-hover": "var(--theme-accent-hover)",
+          highlight: "var(--theme-highlight)",
+          surface: "var(--theme-surface)",
+          "surface-alt": "var(--theme-surface-alt)",
+          "text-primary": "var(--theme-text-primary)",
+          "text-secondary": "var(--theme-text-secondary)",
+          "text-muted": "var(--theme-text-muted)",
+          glass: "var(--theme-glass)",
+          "glass-hover": "var(--theme-glass-hover)",
+          "glass-border": "var(--theme-glass-border)",
+          // Contrasting icon colors
+          "icon-pink": "var(--theme-icon-pink)",
+          "icon-cyan": "var(--theme-icon-cyan)",
+          "icon-purple": "var(--theme-icon-purple)",
+          "icon-orange": "var(--theme-icon-orange)",
+        },
       },
       keyframes: {
         "accordion-down": {

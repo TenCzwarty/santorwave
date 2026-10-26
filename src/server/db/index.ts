@@ -3,6 +3,7 @@ import { createPool, type Pool } from "mysql2/promise";
 
 import { env } from "@/env";
 
+import { requireSingleStoreCredentials } from "./config";
 import * as schema from "./schema";
 
 /**
@@ -13,22 +14,29 @@ const globalForDb = globalThis as unknown as {
   connection: Pool | undefined;
 };
 
-const connection =
-  globalForDb.connection ??
-  createPool({
-    database: env.SINGLESTORE_NAME,
-    user: env.SINGLESTORE_USER,
-    password: env.SINGLESTORE_PASS,
-    host: env.SINGLESTORE_HOST,
-    port: parseInt(env.SINGLESTORE_PORT),
+function createConnection(): Pool {
+  const connection = createPool({
+    ...requireSingleStoreCredentials(),
     ssl: {},
     maxIdle: 0,
   });
 
-if (env.NODE_ENV !== "production") globalForDb.connection = connection;
+  connection.addListener("error", (err) => {
+    console.error("Database connection error:", err);
+  });
 
-connection.addListener("error", (err) => {
-  console.error("Database connection error:", err);
-});
+  return connection;
+}
 
-export const db = drizzle(connection, { schema });
+/**
+ * Connect lazily. Importing this module must not require a configured database —
+ * the app is currently served from `mock.json`, so the pool is only built when
+ * something actually queries.
+ */
+export function getDb() {
+  const connection = globalForDb.connection ?? createConnection();
+
+  if (env.NODE_ENV !== "production") globalForDb.connection = connection;
+
+  return drizzle(connection, { schema });
+}

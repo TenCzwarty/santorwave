@@ -1,14 +1,17 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { AppBar, Button, Handle, Toolbar } from "react95";
 
 export const Footer = () => (
   <div>
-    <footer className="fixed bottom-0 left-0 w-full">
+    <footer className="fixed bottom-0 left-0 w-full z-50">
       <AppBar as="div" style={{ position: "relative" }}>
         <Toolbar>
-          <Button variant="menu">Home</Button>
+          <Link href="/">
+            <Button variant="menu">Home</Button>
+          </Link>
           <Button variant="menu">Stack</Button>
 
           <Handle size={35} />

@@ -9,7 +9,7 @@ export const ModelDavidsHead = () => {
   return (
     <Canvas
       id="david"
-      className="!pointer-events-none !absolute left-0 top-0 -z-10 h-full w-full opacity-50"
+      className="!pointer-events-none !absolute left-0 top-0 z-0 h-full w-full opacity-50"
     >
       <ambientLight intensity={0.5} />
       <pointLight position={[1, 1, 1]} intensity={1} color="pink" />

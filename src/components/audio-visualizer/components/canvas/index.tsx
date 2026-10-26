@@ -90,7 +90,7 @@ export const useCanvas = (): GetCanvasReturnType => {
   const element = (
     <canvas
       ref={ref}
-      className="pointer-events-none fixed left-0 top-0 -z-10 h-full w-full mix-blend-soft-light"
+      className="pointer-events-none fixed left-0 top-0 z-0 h-full w-full opacity-50"
     />
   );
 

@@ -7,13 +7,13 @@ export const env = createEnv({
       .enum(["development", "test", "production"])
       .default("development"),
 
-    DATABASE_URL: z.string().url(),
+    DATABASE_URL: z.string().url().optional(),
 
-    SINGLESTORE_NAME: z.string(),
-    SINGLESTORE_USER: z.string(),
-    SINGLESTORE_PASS: z.string(),
-    SINGLESTORE_HOST: z.string(),
-    SINGLESTORE_PORT: z.string(),
+    SINGLESTORE_NAME: z.string().optional(),
+    SINGLESTORE_USER: z.string().optional(),
+    SINGLESTORE_PASS: z.string().optional(),
+    SINGLESTORE_HOST: z.string().optional(),
+    SINGLESTORE_PORT: z.string().optional(),
   },
 
   client: {},
